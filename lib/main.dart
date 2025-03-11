@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pulsain_task3/homepage/splash_screen_page.dart';
-import 'package:pulsain_task3/homepage/onboarding_page.dart';
+import 'package:pulsain_task3/home_page/splash_screen.dart';
 
 void main() {
   runApp(MyApp());

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pulsain_task3/homepage/home_page.dart';
-import 'package:pulsain_task3/aktivitaspage/aktivitas_page.dart';
-import 'package:pulsain_task3/rekeningpage/rekening_page.dart';
-import 'package:pulsain_task3/tukarpulsapage/tukarpulsa_page.dart';
-import 'package:pulsain_task3/profilepage/profile_page.dart';
+import 'package:pulsain_task3/home_page/home_page.dart';
+import 'package:pulsain_task3/activity_page/activity_page.dart';
+import 'package:pulsain_task3/bank_account_page/bank_account_page.dart';
+import 'package:pulsain_task3/transfer_page/transfer_page.dart';
+import 'package:pulsain_task3/profile_page/profile_page.dart';
 
 class Navbar extends StatefulWidget {
   const Navbar({super.key});
@@ -17,10 +17,10 @@ class _NavbarState extends State<Navbar> {
 
   // Daftar halaman yang akan dipanggil berdasarkan index
   final List<Widget> _pages = [
-    HomeScreen(),
-    AktivitasPage(),
-    TukarpulsaPage(),
-    RekeningPage(),
+    HomePage(),
+    ActivityPage(),
+    TransferPage(),
+    BankAccountPage(),
     const ProfilePage(),
   ];
 
@@ -37,17 +37,17 @@ class _NavbarState extends State<Navbar> {
     Widget buildContent(int currentIndex) {
       switch (currentIndex) {
         case 0:
-          return HomeScreen(); // Menampilkan HomePage jika Home tab dipilih
+          return HomePage(); // Menampilkan HomePage jika Home tab dipilih
         case 1:
-          return AktivitasPage(); // Menampilkan AktivitasPage jika Aktivitas tab dipilih
+          return ActivityPage(); // Menampilkan AktivitasPage jika Aktivitas tab dipilih
         case 2:
-          return TukarpulsaPage(); // Menampilkan TukarPulsaPage jika Tukar Pulsa tab dipilih
+          return TransferPage(); // Menampilkan TukarPulsaPage jika Tukar Pulsa tab dipilih
         case 3:
-          return RekeningPage(); // Menampilkan RekeningPage jika Rekening tab dipilih
+          return BankAccountPage(); // Menampilkan RekeningPage jika Rekening tab dipilih
         case 4:
           return const ProfilePage(); // Menampilkan ProfilPage jika Profil tab dipilih
         default:
-          return HomeScreen(); // Default ke HomePage jika index tidak dikenali
+          return HomePage(); // Default ke HomePage jika index tidak dikenali
       }
     }
 
@@ -160,7 +160,7 @@ class _NavbarState extends State<Navbar> {
                 // Menavigasi ke halaman Tukar Pulsa
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => TukarpulsaPage()),
+                  MaterialPageRoute(builder: (context) => TransferPage()),
                 );
               },
               shape: CircleBorder(),
