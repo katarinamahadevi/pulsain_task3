@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pulsain_task3/home_page.dart';
+import 'package:pulsain_task3/homepage/home_page.dart';
 import 'package:pulsain_task3/models/rate_modal.dart';
 import 'package:pulsain_task3/widgets/button2.dart';
 import 'package:pulsain_task3/widgets/button3.dart';
@@ -113,7 +113,7 @@ class _TermsAndConditionsScreenState extends State<TermsAndConditionsScreen> {
               ],
             ),
 
-            SizedBox(height: 20),
+            SizedBox(height: 10),
 
             // Tombol dengan asset yang berubah
             isChecked

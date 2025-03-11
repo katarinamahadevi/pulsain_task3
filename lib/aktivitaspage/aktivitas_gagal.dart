@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dotted_line/dotted_line.dart';
-import 'package:pulsain_task3/aktivitas_page.dart';
+import 'package:pulsain_task3/aktivitaspage/aktivitas_page.dart';
 import 'package:pulsain_task3/widgets/appBar1.dart';
 import 'package:pulsain_task3/widgets/button.dart';
 

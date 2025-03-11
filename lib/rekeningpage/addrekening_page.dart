@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pulsain_task3/daftarbank_page.dart';
+import 'package:pulsain_task3/rekeningpage/daftarbank_page.dart';
 import 'package:pulsain_task3/widgets/button.dart';
+import 'package:pulsain_task3/widgets/appBar1.dart';
 
 class AddRekeningPage extends StatefulWidget {
   @override
@@ -14,31 +15,11 @@ class _AddRekeningPageState extends State<AddRekeningPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFEFF5F7),
-      appBar: AppBar(
-        backgroundColor: Color(0xFFEFF5F7),
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: Text(
-          "Tambah Rekening",
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
-          ),
-        ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 16),
-            child: Image.asset(
-              'assets/icon_notification.png',
-              width: 40,
-              height: 40,
-            ),
-          ),
-        ],
+      appBar: AppBar1(
+        title: "Tambah Rekening", // Judul bisa diubah
+        onBackPressed: () {
+          Navigator.pop(context); // Navigasi kembali
+        },
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -109,8 +90,8 @@ class _AddRekeningPageState extends State<AddRekeningPage> {
               ),
             ),
             Icon(
-              Icons.arrow_forward_ios,
-              size: 16,
+              Icons.keyboard_arrow_down_outlined,
+              size: 20,
               color: const Color(0xFF0075FF),
             ),
           ],

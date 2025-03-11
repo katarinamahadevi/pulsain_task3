@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:pulsain_task3/widgets/appBar1.dart';
 import 'package:pulsain_task3/widgets/button2.dart';
 import 'daftarbank_page.dart'; // Import halaman untuk memilih bank
@@ -35,13 +36,25 @@ class EditRekeningPage extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: const Color(0xFFFBFBFF),
                   borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Colors.grey.shade300),
+                  border: Border.all(color: const Color(0xFFCFD7FF)),
                 ),
                 child: Row(
                   children: [
-                    Image.asset('assets/logo_bca.png', width: 40, height: 40),
+                    Container(
+                      width: 45,
+                      height: 45,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFF1FDFF),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: SvgPicture.asset(
+                        'assets/logo_bca.svg',
+                        width: 20,
+                        height: 20,
+                      ),
+                    ),
                     SizedBox(width: 12),
                     Expanded(
                       child: Text(
@@ -52,12 +65,12 @@ class EditRekeningPage extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                       decoration: BoxDecoration(
-                        color: Colors.blue.shade100,
+                        color: const Color(0xFFdcecfc),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Text(
                         "Gratis",
-                        style: TextStyle(color: Colors.blue),
+                        style: TextStyle(color: const Color(0xFF0075FF)),
                       ),
                     ),
                     SizedBox(width: 8),
@@ -79,10 +92,24 @@ class EditRekeningPage extends StatelessWidget {
             TextField(
               decoration: InputDecoration(
                 filled: true,
-                fillColor: Colors.white,
-                border: OutlineInputBorder(
+                fillColor: const Color(
+                  0xFFFBFBFF,
+                ), // Warna biru muda sebagai latar belakang
+                enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(color: Colors.grey.shade300),
+                  borderSide: BorderSide(
+                    color: const Color(
+                      0xFFCFD7FF,
+                    ), // Warna biru tua untuk border saat tidak fokus
+                    width: 1.0,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                    color: Colors.blue, // Warna border saat fokus
+                    width: 1.0,
+                  ),
                 ),
                 contentPadding: EdgeInsets.symmetric(
                   horizontal: 12,
@@ -91,6 +118,7 @@ class EditRekeningPage extends StatelessWidget {
               ),
               controller: TextEditingController(text: "7712678199"),
             ),
+
             SizedBox(height: 16),
             Text(
               "Nama Pemilik Rekening",
@@ -100,10 +128,24 @@ class EditRekeningPage extends StatelessWidget {
             TextField(
               decoration: InputDecoration(
                 filled: true,
-                fillColor: Colors.white,
-                border: OutlineInputBorder(
+                fillColor: const Color(
+                  0xFFFBFBFF,
+                ), // Warna oranye muda sebagai latar belakang
+                enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(color: Colors.grey.shade300),
+                  borderSide: BorderSide(
+                    color: const Color(
+                      0xFFCFD7FF,
+                    ), // Warna oranye tua untuk border saat tidak fokus
+                    width: 1.0,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                    color: Colors.orange, // Warna border saat fokus
+                    width: 1.0,
+                  ),
                 ),
                 contentPadding: EdgeInsets.symmetric(
                   horizontal: 12,
@@ -112,6 +154,7 @@ class EditRekeningPage extends StatelessWidget {
               ),
               controller: TextEditingController(text: "Johnatan Ludwig"),
             ),
+
             SizedBox(height: 200),
             Button2(text: "Hapus Rekening", onPressed: () {}),
             SizedBox(height: 10),

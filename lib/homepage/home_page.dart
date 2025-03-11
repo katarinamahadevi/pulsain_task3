@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:pulsain_task3/models/rate_modal.dart';
-import 'package:pulsain_task3/notification_page.dart';
+import 'package:pulsain_task3/homepage/notification_page.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -106,8 +106,8 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               child: Image.asset(
                 'assets/icon_notification.png',
-                width: 40,
-                height: 40,
+                width: 30,
+                height: 30,
               ),
             ),
           ],
@@ -129,10 +129,10 @@ class _HomeScreenState extends State<HomeScreen> {
               "Selamat Datang di Pulsaln.",
               style: TextStyle(color: const Color(0xFFBDBDBD), fontSize: 16),
             ),
-            SizedBox(height: 15),
+            SizedBox(height: 5),
             // **Banner Promo**
             SizedBox(
-              height: 155,
+              height: 150,
               child: PageView.builder(
                 controller: _pageController,
                 itemCount: promoImages.length,
@@ -263,9 +263,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemCount: providerList.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
-                  childAspectRatio: 0.6,
-                  mainAxisSpacing: 15,
-                  crossAxisSpacing: 5,
+                  childAspectRatio: 0.7,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
                 ),
                 itemBuilder: (context, index) {
                   return GestureDetector(
@@ -299,7 +299,6 @@ class _HomeScreenState extends State<HomeScreen> {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: Colors.grey.shade300),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -341,7 +340,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         decoration: TextDecoration.lineThrough,
                       ),
                     ),
-                  if (!isNoPromoProvider) SizedBox(width: 5),
+                  if (!isNoPromoProvider) SizedBox(width: 15),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     decoration: BoxDecoration(
@@ -367,7 +366,7 @@ class _HomeScreenState extends State<HomeScreen> {
         if (!isNoPromoProvider)
           Positioned(
             top: -8,
-            left: 30,
+            left: 25,
             child: Image.asset('assets/label_discount.png', width: 70),
           ),
       ],

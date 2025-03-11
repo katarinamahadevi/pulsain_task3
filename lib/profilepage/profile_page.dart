@@ -3,7 +3,7 @@ import 'package:pulsain_task3/models/editemail_modal.dart';
 import 'package:pulsain_task3/models/editname_modal.dart';
 import 'package:pulsain_task3/models/editphone_modal.dart';
 import 'package:pulsain_task3/models/editprofile_modal.dart';
-import 'package:pulsain_task3/pusatbantuan_page.dart';
+import 'package:pulsain_task3/profilepage/pusatbantuan_page.dart';
 import 'package:pulsain_task3/widgets/appBar1.dart';
 
 class ProfilePage extends StatelessWidget {

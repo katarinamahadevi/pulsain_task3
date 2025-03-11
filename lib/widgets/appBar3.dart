@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppBar3 extends StatelessWidget implements PreferredSizeWidget {
+  //page chat
   final String title;
   final VoidCallback? onBack;
 

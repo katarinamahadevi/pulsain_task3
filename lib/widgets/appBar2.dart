@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppBar2 extends StatelessWidget {
+  //page tukarpulsa
   final String title;
   final VoidCallback? onBackPressed;
   final VoidCallback? onNotificationPressed;

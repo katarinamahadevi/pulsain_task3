@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pulsain_task3/widgets/appBar1.dart';
 
 class DaftarbankPage extends StatelessWidget {
@@ -55,7 +56,7 @@ class DaftarbankPage extends StatelessWidget {
                     color: const Color(0xFFF1FDFF),
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  child: Image.asset(bank["logo"]!, fit: BoxFit.contain),
+                  child: Image.asset(bank["logo"]!),
                 ),
                 SizedBox(width: 12),
                 Text(

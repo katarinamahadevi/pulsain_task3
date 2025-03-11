@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:pulsain_task3/widgets/button.dart';
 
 class EditProfileModal extends StatelessWidget {
   const EditProfileModal({Key? key}) : super(key: key);
@@ -88,6 +89,7 @@ class EditProfileModal extends StatelessWidget {
             decoration: BoxDecoration(
               color: const Color(0xFFF1FDFF),
               borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: const Color(0xFFCFF8FF)),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,17 +110,18 @@ class EditProfileModal extends StatelessWidget {
                     ),
                     Icon(Icons.pause_circle, color: Colors.red),
                     SizedBox(width: 5),
-                    Icon(Icons.cancel, color: Colors.grey),
+                    Icon(Icons.cancel, color: const Color(0xFF0075FF)),
                   ],
                 ),
                 SizedBox(height: 8),
 
                 // Progress bar di bawah teks
                 LinearProgressIndicator(
+                  borderRadius: BorderRadius.circular(10),
                   value: 0.15,
                   backgroundColor: const Color(0xFFFAFAFA),
                   color: Colors.blue,
-                  minHeight: 5,
+                  minHeight: 8,
                 ),
               ],
             ),
@@ -130,20 +133,7 @@ class EditProfileModal extends StatelessWidget {
           // Tombol Simpan
           SizedBox(
             width: double.infinity,
-            child: ElevatedButton(
-              onPressed: () => Navigator.pop(context),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue,
-                padding: EdgeInsets.symmetric(vertical: 14),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
-              child: Text(
-                "Simpan",
-                style: TextStyle(fontSize: 16, color: Colors.white),
-              ),
-            ),
+            child: CustomButton(text: "Simpan", onPressed: () {}),
           ),
           SizedBox(height: 0),
         ],

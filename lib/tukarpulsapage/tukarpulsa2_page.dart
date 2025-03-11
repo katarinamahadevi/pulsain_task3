@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:pulsain_task3/homepage/notification_page.dart';
 import 'package:pulsain_task3/models/warning_modal.dart';
-import 'package:pulsain_task3/rekening_page.dart';
-import 'package:pulsain_task3/tukarpulsa2_page.dart';
+import 'package:pulsain_task3/rekeningpage/rekening_page.dart';
+import 'package:pulsain_task3/tukarpulsapage/tukarpulsa2_page.dart';
 import 'package:pulsain_task3/widgets/button.dart';
-import 'widgets/button3.dart';
+import '../widgets/button3.dart';
 import 'package:dotted_line/dotted_line.dart';
 
 void showWarningModal(BuildContext context) {
@@ -50,7 +51,11 @@ class TukarPulsa2 extends StatelessWidget {
                       color: Colors.white.withOpacity(0.2),
                       shape: BoxShape.circle,
                     ),
-                    child: const Icon(Icons.arrow_back, color: Colors.white),
+                    child: const Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                      size: 15,
+                    ),
                   ),
                 ),
 
@@ -76,6 +81,12 @@ class TukarPulsa2 extends StatelessWidget {
                 // Ikon Notifikasi
                 GestureDetector(
                   onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => KotakMasukScreen(),
+                      ),
+                    );
                     // Aksi ketika ikon notifikasi ditekan
                   },
                   child: Stack(
@@ -89,6 +100,7 @@ class TukarPulsa2 extends StatelessWidget {
                         child: const Icon(
                           Icons.notifications_none,
                           color: Colors.white,
+                          size: 20,
                         ),
                       ),
                       // Notifikasi badge (jika ada notifikasi baru)
@@ -302,7 +314,7 @@ class TukarPulsa2 extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            const SizedBox(height: 8),
+                            const SizedBox(height: 15),
                             GestureDetector(
                               onTap: () {
                                 Navigator.push(
@@ -313,28 +325,56 @@ class TukarPulsa2 extends StatelessWidget {
                                 );
                               },
                               child: Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 16,
-                                  vertical: 14,
-                                ),
+                                padding: const EdgeInsets.all(12),
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(
-                                    color: const Color(0xFFCFD7FF),
-                                  ),
                                 ),
-                                child: const Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                child: Row(
                                   children: [
-                                    Text(
-                                      "Pilih Rekening",
-                                      style: TextStyle(color: Colors.grey),
+                                    // Logo Bank
+                                    Container(
+                                      padding: const EdgeInsets.all(10),
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xFFEFF5F7),
+                                        borderRadius: BorderRadius.circular(5),
+                                      ),
+                                      child: Image.asset(
+                                        'assets/logo_bca.png', // Gantilah dengan logo bank sesuai data
+                                        width: 20,
+                                        height: 15,
+                                      ),
                                     ),
-                                    Icon(
-                                      Icons.arrow_drop_down,
-                                      color: Color.fromRGBO(33, 150, 243, 1),
+                                    const SizedBox(width: 12),
+
+                                    // Informasi Rekening
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Johnatan Ludwig", // Nama pemilik rekening
+                                            style: const TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          Text(
+                                            "7712812799", // Nomor rekening
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              color: Colors.grey.shade500,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+
+                                    // Ikon Panah Kanan
+                                    const Icon(
+                                      Icons.chevron_right,
+                                      color: Color(0xFF0075FF),
                                     ),
                                   ],
                                 ),
@@ -359,10 +399,11 @@ class TukarPulsa2 extends StatelessWidget {
                                 children: [
                                   // Teks Informasi
                                   const Text(
+                                    textAlign: TextAlign.justify,
                                     "Untuk dapat convert nominal 30.000 anda harus memiliki pulsa 34.500. "
                                     "Pastikan pulsa anda aman tidak dari tindak ilegal.",
                                     style: TextStyle(
-                                      fontSize: 12,
+                                      fontSize: 14,
                                       color: Color(0xFF4B4C4D),
                                     ),
                                   ),
@@ -382,22 +423,23 @@ class TukarPulsa2 extends StatelessWidget {
                                     children: [
                                       Transform.scale(
                                         scale: 0.9,
-                                        child: Checkbox(
-                                          value: false,
-                                          onChanged: (value) {},
-                                          activeColor: Colors.blue.shade400,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(
-                                              5,
-                                            ),
+                                        child: GestureDetector(
+                                          onTap: () {},
+                                          child: Image.asset(
+                                            'assets/icon_checkbox2.png',
+                                            width: 24,
+                                            height: 24,
                                           ),
                                         ),
                                       ),
-                                      const Text(
-                                        "Anda setuju dengan nominal hasil convert",
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                          color: Color(0xFF4B4C4D),
+                                      SizedBox(width: 10),
+                                      Expanded(
+                                        child: Text(
+                                          'Anda setuju dengan nominal hasil convert.',
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w500,
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -405,7 +447,7 @@ class TukarPulsa2 extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            const SizedBox(height: 10),
+                            const SizedBox(height: 40),
 
                             CustomButton(
                               text: "Lanjutkan",

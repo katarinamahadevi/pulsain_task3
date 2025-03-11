@@ -4,7 +4,7 @@ class Button2 extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
 
-  const Button2 ({required this.text, required this.onPressed});
+  const Button2({required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +16,7 @@ class Button2 extends StatelessWidget {
           backgroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
-            side: BorderSide(
-              color: Colors.blueAccent,
-              width: 1,
-            )
+            side: BorderSide(color: const Color(0xFF448AFF), width: 1),
           ),
         ),
         onPressed: onPressed,

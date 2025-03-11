@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:dotted_line/dotted_line.dart';
-import 'package:pulsain_task3/aktivitas_berhasil.page.dart';
-import 'package:pulsain_task3/aktivitas_gagal.dart';
-import 'package:pulsain_task3/aktivitas_menunggu.page.dart';
+import 'package:pulsain_task3/aktivitaspage/aktivitas_berhasil.page.dart';
+import 'package:pulsain_task3/aktivitaspage/aktivitas_gagal.dart';
+import 'package:pulsain_task3/aktivitaspage/aktivitas_menunggu.page.dart';
+import 'package:pulsain_task3/homepage/notification_page.dart';
 import 'package:pulsain_task3/widgets/navbar.dart';
 
 class AktivitasPage extends StatelessWidget {
@@ -16,10 +17,15 @@ class AktivitasPage extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
+          actionsPadding: EdgeInsets.symmetric(horizontal: 16),
           backgroundColor: backgroundColor,
           elevation: 0,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.black),
+            icon: Image.asset(
+              'assets/icon_back_appbar.png',
+              width: 35,
+              height: 35,
+            ),
             onPressed: () {
               Navigator.push(
                 context,
@@ -39,21 +45,39 @@ class AktivitasPage extends StatelessWidget {
             IconButton(
               icon: Image.asset(
                 'assets/icon_notification.png',
-                width: 40,
-                height: 40,
+                width: 30,
+                height: 30,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => KotakMasukScreen()),
+                );
+              },
             ),
           ],
-          bottom: TabBar(
-            labelColor: Colors.blue,
-            unselectedLabelColor: const Color(0xFF9E9E9E),
-            indicatorColor: Colors.blue,
-            tabs: [Tab(text: 'Proses'), Tab(text: 'Berhasil')],
+          bottom: PreferredSize(
+            preferredSize: Size.fromHeight(48),
+            child: Column(
+              children: [
+                Container(height: 1, color: const Color(0xFFE0E0E0)),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: TabBar(
+                    dividerColor: const Color(0xFF95b9f9),
+                    indicatorColor: Color(0xff0075FF),
+                    indicatorSize: TabBarIndicatorSize.tab,
+                    labelColor: const Color(0xFF0075FF),
+                    unselectedLabelColor: const Color(0xFF95b9f9),
+                    tabs: [Tab(text: "Proses"), Tab(text: "Berhasil")],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         body: Container(
-          color: backgroundColor, // Warna latar belakang bisa diubah
+          color: backgroundColor,
           child: TabBarView(
             children: [TransactionList(), SuccessTransactionList()],
           ),
@@ -106,6 +130,13 @@ class TransactionList extends StatelessWidget {
       'logo': 'assets/logo_tri.png',
     },
   ];
+  final Map<String, Color> providerColors = {
+    'Telkomsel': const Color(0xFFF5E9EB),
+    'Axis': const Color(0xFFE4EBFF),
+    'XL': const Color(0xFFE3F7F6),
+    'Indosat': const Color(0xFFF6F1EB),
+    'Tri': const Color(0xFFF5E9EB),
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -147,11 +178,26 @@ class TransactionList extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.transparent,
-                        backgroundImage: AssetImage(transaction['logo']!),
-                        radius: 20,
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color:
+                              providerColors[transaction['provider']] ??
+                              Colors
+                                  .grey
+                                  .shade200, // Default warna jika tidak ada
+                          shape: BoxShape.circle,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image.asset(
+                            transaction['logo']!,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
                       ),
+
                       SizedBox(width: 10),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -270,6 +316,13 @@ class SuccessTransactionList extends StatelessWidget {
       'logo': 'assets/logo_indosat.png',
     },
   ];
+  final Map<String, Color> providerColors = {
+    'Telkomsel': const Color(0xFFF5E9EB),
+    'Axis': const Color(0xFFE4EBFF),
+    'XL': const Color(0xFFE3F7F6),
+    'Indosat': const Color(0xFFF6F1EB),
+    'Tri': const Color(0xFFF5E9EB),
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -310,11 +363,26 @@ class SuccessTransactionList extends StatelessWidget {
                 // Header
                 Row(
                   children: [
-                    CircleAvatar(
-                      backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage(transaction['logo']!),
-                      radius: 20,
+                    Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color:
+                            providerColors[transaction['provider']] ??
+                            Colors
+                                .grey
+                                .shade200, // Default warna jika tidak ada
+                        shape: BoxShape.circle,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(
+                          transaction['logo']!,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
                     ),
+
                     SizedBox(width: 10),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

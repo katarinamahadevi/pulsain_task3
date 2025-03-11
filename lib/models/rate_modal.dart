@@ -17,7 +17,7 @@ class RateModal extends StatelessWidget {
         children: [
           // Garis kecil di atas modal
           Container(
-            width: 40,
+            width: 80,
             height: 5,
             decoration: BoxDecoration(
               color: Colors.blue.shade100,
@@ -69,7 +69,7 @@ class RateModal extends StatelessWidget {
             ],
           ),
           Divider(),
-          SizedBox(height: 16),
+          SizedBox(height: 7),
           _buildRateItem('30.000 - 1.000.000', 0.82, false),
           _buildRateItem('30.000 - 10.000.000', 0.82, false),
           _buildRateItem('30.000 - 100.000.000', 0.82, true), // Item terakhir
@@ -147,11 +147,11 @@ class CustomButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.blue,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        backgroundColor: const Color(0xFF0075FF),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 12),
+        padding: const EdgeInsets.symmetric(vertical: 15),
         child: Center(
           child: Text(
             text,

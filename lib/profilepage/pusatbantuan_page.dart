@@ -12,12 +12,11 @@ class PusatbantuanPage extends StatelessWidget {
           Navigator.pop(context);
         },
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Stack(
-          // Menggunakan Stack agar Positioned bisa bekerja
-          children: [
-            Column(
+      body: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
@@ -58,7 +57,7 @@ class PusatbantuanPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 16),
+                SizedBox(height: 30),
                 Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
@@ -110,15 +109,13 @@ class PusatbantuanPage extends StatelessWidget {
                 ),
               ],
             ),
-
-            // Ilustrasi orang di sebelah kanan bawah
-            Positioned(
-              bottom: -20,
-              right: -5,
-              child: Image.asset("assets/illust_people.png", width: 250),
-            ),
-          ],
-        ),
+          ),
+          Positioned(
+            bottom: -5,
+            right: -10,
+            child: Image.asset("assets/illust_people.png", width: 280),
+          ),
+        ],
       ),
     );
   }
@@ -143,7 +140,7 @@ class ContactItem extends StatelessWidget {
         children: [
           Container(
             height: 70,
-            padding: EdgeInsets.all(8),
+            padding: EdgeInsets.all(15),
             decoration: BoxDecoration(
               color: Colors.white,
               shape: BoxShape.circle,

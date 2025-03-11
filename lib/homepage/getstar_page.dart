@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pulsain_task3/sdk_page.dart';
+import 'package:pulsain_task3/homepage/sdk_page.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override

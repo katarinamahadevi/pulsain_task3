@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pulsain_task3/onboarding2_page.dart';
-import 'package:pulsain_task3/onboarding3_page.dart';
+import 'package:pulsain_task3/homepage/onboarding2_page.dart';
 
-class OnboardingScreen2 extends StatelessWidget {
+class OnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,14 +12,14 @@ class OnboardingScreen2 extends StatelessWidget {
           Spacer(),
           Center(
             child: Image.asset(
-              'assets/illust_onboarding2.png',
+              'assets/illust_onboarding1.png',
               width: 250,
               height: 250,
             ),
           ),
           SizedBox(height: 30),
           Text(
-            'Termudah dan Teraman',
+            'Terpercaya',
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
@@ -31,7 +30,7 @@ class OnboardingScreen2 extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40),
             child: Text(
-              'Termudah dan paling aman untuk transaksi penukaran pulsa menjadi e-money',
+              'Convert paling terpercaya untuk penukaran pulsa menjadi e-money',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 14, color: Colors.grey.shade700),
             ),
@@ -42,18 +41,18 @@ class OnboardingScreen2 extends StatelessWidget {
             children: [
               Container(
                 height: 6,
-                width: 20,
+                width: 30,
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade300,
+                  color: Colors.blue,
                   borderRadius: BorderRadius.circular(3),
                 ),
               ),
               SizedBox(width: 5),
               Container(
                 height: 6,
-                width: 30,
+                width: 20,
                 decoration: BoxDecoration(
-                  color: Colors.blue,
+                  color: Colors.grey.shade300,
                   borderRadius: BorderRadius.circular(3),
                 ),
               ),
@@ -87,7 +86,7 @@ class OnboardingScreen2 extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => OnboardingScreen3()),
+                  MaterialPageRoute(builder: (context) => OnboardingScreen2()),
                 );
 
                 // Aksi saat tombol ditekan

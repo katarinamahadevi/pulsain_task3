@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dotted_line/dotted_line.dart';
-import 'package:pulsain_task3/aktivitas_page.dart';
-import 'package:pulsain_task3/chat_page.dart';
+import 'package:pulsain_task3/aktivitaspage/aktivitas_page.dart';
+import 'package:pulsain_task3/tukarpulsapage/chat_page.dart';
 import 'package:pulsain_task3/widgets/appBar1.dart';
 import 'package:pulsain_task3/widgets/button.dart';
 import 'package:pulsain_task3/widgets/button2.dart';
@@ -157,7 +157,7 @@ class AktivitasMenunggu extends StatelessWidget {
                                 size: 20,
                               ),
                             ),
-                            const SizedBox(width: 8),
+                            const SizedBox(width: 15),
                             const Expanded(
                               child: Text.rich(
                                 TextSpan(

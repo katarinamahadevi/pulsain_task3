@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pulsain_task3/addrekening_page.dart';
-import 'package:pulsain_task3/editrekening_page.dart';
-import 'package:pulsain_task3/home_page.dart';
+import 'package:pulsain_task3/rekeningpage/addrekening_page.dart';
+import 'package:pulsain_task3/rekeningpage/editrekening_page.dart';
+import 'package:pulsain_task3/homepage/home_page.dart';
 import 'package:pulsain_task3/widgets/appBar1.dart';
 import 'package:pulsain_task3/widgets/button.dart';
 import 'package:pulsain_task3/widgets/navbar.dart';

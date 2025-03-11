@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dotted_line/dotted_line.dart';
-import 'package:pulsain_task3/aktivitas_menunggu.page.dart';
+import 'package:pulsain_task3/aktivitaspage/aktivitas_menunggu.page.dart';
+import 'package:pulsain_task3/homepage/notification_page.dart';
 import 'package:pulsain_task3/widgets/button.dart';
 import 'package:pulsain_task3/widgets/button2.dart';
 
@@ -32,7 +33,11 @@ class TukarPulsa3 extends StatelessWidget {
                       color: Colors.white.withOpacity(0.2),
                       shape: BoxShape.circle,
                     ),
-                    child: const Icon(Icons.arrow_back, color: Colors.white),
+                    child: const Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                      size: 15,
+                    ),
                   ),
                 ),
                 const SizedBox(width: 10),
@@ -49,7 +54,14 @@ class TukarPulsa3 extends StatelessWidget {
                 ),
                 const Spacer(),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => KotakMasukScreen(),
+                      ),
+                    );
+                  },
                   child: Stack(
                     children: [
                       Container(
@@ -61,6 +73,7 @@ class TukarPulsa3 extends StatelessWidget {
                         child: const Icon(
                           Icons.notifications_none,
                           color: Colors.white,
+                          size: 20,
                         ),
                       ),
                       Positioned(
@@ -231,7 +244,7 @@ class TukarPulsa3 extends StatelessWidget {
                   Text(
                     "Rp 80.000",
                     style: TextStyle(
-                      color: Colors.blue,
+                      color: Color(0xFF0075FF),
                       fontWeight: FontWeight.bold,
                     ),
                   ),

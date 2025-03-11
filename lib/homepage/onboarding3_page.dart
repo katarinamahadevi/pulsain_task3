@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pulsain_task3/getstar_page.dart';
-import 'package:pulsain_task3/onboarding2_page.dart';
-import 'package:pulsain_task3/onboarding3_page.dart';
+import 'package:pulsain_task3/homepage/getstar_page.dart';
+import 'package:pulsain_task3/homepage/onboarding2_page.dart';
+import 'package:pulsain_task3/homepage/onboarding3_page.dart';
 
 class OnboardingScreen3 extends StatelessWidget {
   @override

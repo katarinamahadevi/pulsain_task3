@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pulsain_task3/rekening_page.dart';
-import 'package:pulsain_task3/tukarpulsa2_page.dart';
-import 'widgets/button3.dart';
+import 'package:pulsain_task3/homepage/notification_page.dart';
+import 'package:pulsain_task3/rekeningpage/rekening_page.dart';
+import 'package:pulsain_task3/tukarpulsapage/tukarpulsa2_page.dart';
+import 'package:pulsain_task3/widgets/checkbox.dart';
+import '../widgets/button3.dart';
 import 'package:dotted_line/dotted_line.dart';
 
 class TukarpulsaPage extends StatelessWidget {
@@ -36,12 +38,16 @@ class TukarpulsaPage extends StatelessWidget {
                       color: Colors.white.withOpacity(0.2),
                       shape: BoxShape.circle,
                     ),
-                    child: const Icon(Icons.arrow_back, color: Colors.white),
+                    child: const Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                      size: 15,
+                    ),
                   ),
                 ),
 
                 // Spasi kecil antara ikon back dan teks
-                const SizedBox(width: 10),
+                const SizedBox(width: 5),
 
                 // Judul dengan Expanded agar tetap di tengah
                 Expanded(
@@ -62,6 +68,12 @@ class TukarpulsaPage extends StatelessWidget {
                 // Ikon Notifikasi
                 GestureDetector(
                   onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => KotakMasukScreen(),
+                      ),
+                    );
                     // Aksi ketika ikon notifikasi ditekan
                   },
                   child: Stack(
@@ -75,6 +87,7 @@ class TukarpulsaPage extends StatelessWidget {
                         child: const Icon(
                           Icons.notifications_none,
                           color: Colors.white,
+                          size: 20,
                         ),
                       ),
                       // Notifikasi badge (jika ada notifikasi baru)
@@ -322,22 +335,23 @@ class TukarpulsaPage extends StatelessWidget {
                                     children: [
                                       Transform.scale(
                                         scale: 0.9,
-                                        child: Checkbox(
-                                          value: false,
-                                          onChanged: (value) {},
-                                          activeColor: Colors.blue.shade400,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(
-                                              5,
-                                            ),
+                                        child: GestureDetector(
+                                          onTap: () {},
+                                          child: Image.asset(
+                                            'assets/icon_checkbox.png',
+                                            width: 24,
+                                            height: 24,
                                           ),
                                         ),
                                       ),
-                                      const Text(
-                                        "Anda setuju dengan nominal hasil convert",
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                          color: Color(0xFF4B4C4D),
+                                      SizedBox(width: 10),
+                                      Expanded(
+                                        child: Text(
+                                          'Anda setuju dengan nominal hasil convert.',
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w500,
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -345,8 +359,7 @@ class TukarpulsaPage extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            const SizedBox(height: 80),
-
+                            SizedBox(height: 80),
                             Button3(
                               text: "Lanjutkan",
                               onPressed: () {

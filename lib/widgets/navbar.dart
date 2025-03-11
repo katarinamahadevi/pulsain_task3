@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pulsain_task3/home_page.dart';
-import 'package:pulsain_task3/aktivitas_page.dart';
-import 'package:pulsain_task3/rekening_page.dart';
-import 'package:pulsain_task3/tukarpulsa_page.dart';
-import 'package:pulsain_task3/profile_page.dart';
+import 'package:pulsain_task3/homepage/home_page.dart';
+import 'package:pulsain_task3/aktivitaspage/aktivitas_page.dart';
+import 'package:pulsain_task3/rekeningpage/rekening_page.dart';
+import 'package:pulsain_task3/tukarpulsapage/tukarpulsa_page.dart';
+import 'package:pulsain_task3/profilepage/profile_page.dart';
 
 class Navbar extends StatefulWidget {
   const Navbar({super.key});
@@ -72,7 +72,7 @@ class _NavbarState extends State<Navbar> {
                 height: 30, // Ukuran ikon navbar
                 color:
                     currentIndex == index
-                        ? Colors.blue
+                        ? const Color(0xFF0075FF)
                         : Colors.grey, // Warna ikon berdasarkan status aktif
               ),
               Text(
@@ -82,7 +82,7 @@ class _NavbarState extends State<Navbar> {
                   fontSize: 12,
                   color:
                       currentIndex == index
-                          ? Colors.blue
+                          ? const Color(0xFF0075FF)
                           : Colors.grey, // Warna teks berdasarkan status aktif
                 ),
               ),

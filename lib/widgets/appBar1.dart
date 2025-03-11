@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:pulsain_task3/homepage/notification_page.dart';
 
 class AppBar1 extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final VoidCallback? onBackPressed;
+  final VoidCallback? onNotificationPressed;
 
-  const AppBar1({Key? key, required this.title, this.onBackPressed})
-    : super(key: key);
+  const AppBar1({
+    Key? key,
+    required this.title,
+    this.onBackPressed,
+    this.onNotificationPressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +22,7 @@ class AppBar1 extends StatelessWidget implements PreferredSizeWidget {
           padding: EdgeInsets.symmetric(horizontal: 16),
           child: SafeArea(
             child: Padding(
-              padding: EdgeInsets.only(
-                top: 15,
-              ), // Tambahkan space di atas elemen
+              padding: EdgeInsets.only(top: 15),
               child: Row(
                 children: [
                   // Tombol Back dengan aksi yang bisa diubah
@@ -32,7 +36,7 @@ class AppBar1 extends StatelessWidget implements PreferredSizeWidget {
                   ),
                   SizedBox(width: 12),
 
-                  // Judul AppBar yang bisa diubah
+                  // Judul AppBar
                   Expanded(
                     child: Text(
                       title,
@@ -44,11 +48,23 @@ class AppBar1 extends StatelessWidget implements PreferredSizeWidget {
                     ),
                   ),
 
-                  // Ikon Notifikasi tanpa Container tambahan
-                  Image.asset(
-                    'assets/icon_notification.png', // Ganti dengan path ikon notifikasimu
-                    width: 30,
-                    height: 30,
+                  // Ikon Notifikasi dengan navigasi
+                  GestureDetector(
+                    onTap:
+                        onNotificationPressed ??
+                        () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => KotakMasukScreen(),
+                            ),
+                          );
+                        },
+                    child: Image.asset(
+                      'assets/icon_notification.png', // Ganti dengan path ikon notifikasi
+                      width: 30,
+                      height: 30,
+                    ),
                   ),
                 ],
               ),
@@ -56,12 +72,11 @@ class AppBar1 extends StatelessWidget implements PreferredSizeWidget {
           ),
         ),
         SizedBox(height: 10),
-        // Divider abu-abu samar di bawah AppBar
         Divider(thickness: 1, color: Colors.grey.shade300, height: 1),
       ],
     );
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight + 16); // Tambahkan ketinggian
+  Size get preferredSize => Size.fromHeight(kToolbarHeight + 16);
 }

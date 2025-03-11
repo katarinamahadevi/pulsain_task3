@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pulsain_task3/tukarpulsa3_page.dart';
+import 'package:pulsain_task3/tukarpulsapage/tukarpulsa3_page.dart';
 
 class WarningModal extends StatelessWidget {
   const WarningModal({Key? key}) : super(key: key);
@@ -29,8 +29,9 @@ class WarningModal extends StatelessWidget {
           const SizedBox(height: 10),
           const Text(
             "Peringatan",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
+          SizedBox(height: 10),
           Divider(color: const Color(0xFFE9E9E9)),
           const SizedBox(height: 16),
           Row(
@@ -54,7 +55,7 @@ class WarningModal extends StatelessWidget {
                 child: OutlinedButton(
                   onPressed: () => Navigator.pop(context),
                   style: OutlinedButton.styleFrom(
-                    side: const BorderSide(color: Colors.blue),
+                    side: const BorderSide(color: Color(0xFF0075FF)),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(
                         5,
@@ -63,7 +64,7 @@ class WarningModal extends StatelessWidget {
                   ),
                   child: const Text(
                     "Batalkan",
-                    style: TextStyle(color: Colors.blue),
+                    style: TextStyle(color: Color(0xFF0075FF)),
                   ),
                 ),
               ),
@@ -77,7 +78,7 @@ class WarningModal extends StatelessWidget {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
+                    backgroundColor: const Color(0xFF0075FF),
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(
