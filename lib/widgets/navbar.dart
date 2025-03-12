@@ -143,34 +143,41 @@ class _NavbarState extends State<Navbar> {
 
     // Membuat FloatingActionButton untuk Tukar Pulsa
     Widget floatingActionButton() {
-      return Padding(
-        padding: const EdgeInsets.only(
-          bottom: 50,
-        ), // Memberikan padding agar tidak tumpang tindih
-        child: Align(
-          alignment: Alignment.bottomCenter,
-          child: Container(
-            padding: EdgeInsets.all(4),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.circle,
+      return Positioned(
+        bottom: 20, // Sesuaikan agar pas di tengah navbar
+        left: 0,
+        right: 0,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              padding: EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+              ),
+              child: FloatingActionButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TransferPage()),
+                  );
+                },
+                shape: CircleBorder(),
+                backgroundColor: Color(0xFF3D95FD),
+                child: Icon(Icons.swap_horiz, color: Colors.white),
+              ),
             ),
-            child: FloatingActionButton(
-              onPressed: () {
-                // Menavigasi ke halaman Tukar Pulsa
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => TransferPage()),
-                );
-              },
-              shape: CircleBorder(),
-              backgroundColor: Color(
-                0xFF3D95FD,
-              ), // Ganti dengan warna yang diinginkan
-
-              child: Icon(Icons.swap_horiz, color: Colors.white),
+            const SizedBox(height: 20), // Jarak antara FAB dan teks
+            Text(
+              'Tukar Pulsa',
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+                color: Colors.grey,
+              ),
             ),
-          ),
+          ],
         ),
       );
     }
@@ -180,7 +187,7 @@ class _NavbarState extends State<Navbar> {
         children: [
           buildContent(currentIndex), // Konten berdasarkan tab yang dipilih
           customBottomNavigationBar(), // Navbar yang menggunakan gambar dari assets
-          floatingActionButton(), // Floating action button
+          floatingActionButton(), // Floating action button + teks di tengah navbar
         ],
       ),
     );
