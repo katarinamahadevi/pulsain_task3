@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
-      builder: (context) => RateModal(), // Panggil modal dengan provider
+      builder: (context) => RateModal(),
     );
   }
 
@@ -55,17 +55,15 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // Garis biru di atas container putih (menempel)
                   Container(
-                    width: 40, // Lebar garis
-                    height: 5, // Ketebalan garis
+                    width: 40,
+                    height: 5,
                     decoration: BoxDecoration(
-                      color: const Color(0xFF0075FF), // Warna garis
+                      color: const Color(0xFF0075FF),
                       borderRadius: BorderRadius.circular(2),
                     ),
                   ),
 
-                  // Container putih dengan teks
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     decoration: BoxDecoration(
@@ -130,7 +128,6 @@ class _HomePageState extends State<HomePage> {
               style: TextStyle(color: const Color(0xFFBDBDBD), fontSize: 16),
             ),
             SizedBox(height: 5),
-            // **Banner Promo**
             SizedBox(
               height: 150,
               child: PageView.builder(
@@ -156,7 +153,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             SizedBox(height: 8),
-            // **Indicator PageView**
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(promoImages.length, (index) {
@@ -176,8 +172,6 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(height: 20),
 
-            // **Peringatan**
-            // **Peringatan**
             Container(
               padding: EdgeInsets.all(12),
               decoration: BoxDecoration(
@@ -187,15 +181,8 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // Ikon warning langsung tanpa background lingkaran
-                  Image.asset(
-                    'assets/icon_warning.png', // Sesuaikan dengan path asset kamu
-                    width: 30,
-                    height: 30,
-                  ),
+                  Image.asset('assets/icon_warning.png', width: 30, height: 30),
                   SizedBox(width: 12),
-
-                  // Teks "Penting!" dan deskripsi
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -208,7 +195,7 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.black,
                           ),
                         ),
-                        SizedBox(height: 2), // Spasi kecil
+                        SizedBox(height: 2),
                         RichText(
                           text: TextSpan(
                             text: "Patuhi ",
@@ -219,8 +206,7 @@ class _HomePageState extends State<HomePage> {
                                 style: TextStyle(
                                   fontSize: 14,
                                   color: Colors.black,
-                                  decoration:
-                                      TextDecoration.underline, // Garis bawah
+                                  decoration: TextDecoration.underline,
                                 ),
                               ),
                               TextSpan(
@@ -236,7 +222,6 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  // Icon panah
                   Icon(Icons.arrow_forward_ios, size: 14, color: Colors.grey),
                 ],
               ),
@@ -246,19 +231,15 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.symmetric(vertical: 10),
               child: DottedLine(dashColor: Colors.grey.shade300),
             ),
-            // **Pilihan Convert Pulsa**
             Text(
               "Pilihan Convert Pulsa",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 20),
             SizedBox(
-              height:
-                  (providerList.length / 3).ceil() *
-                  280, // Sesuaikan tinggi agar cukup untuk semua item
+              height: (providerList.length / 3).ceil() * 280,
               child: GridView.builder(
-                physics:
-                    NeverScrollableScrollPhysics(), // Mencegah bentrok dengan SingleChildScrollView
+                physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: providerList.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -289,11 +270,10 @@ class _HomePageState extends State<HomePage> {
     bool isNoPromoProvider = provider == 'Tri' || provider == 'Smartfren';
 
     return Stack(
-      clipBehavior: Clip.none, // Memastikan label promo tetap terlihat
+      clipBehavior: Clip.none,
       children: [
-        // Kartu utama
         Container(
-          height: 200,
+          height: 300,
           width: 130,
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
@@ -303,20 +283,15 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
-                height: 20,
-              ), // Beri jarak agar gambar provider tidak tergeser
-              // 🔹 Container berbentuk lingkaran untuk membungkus logo pulsa
+              SizedBox(height: 20),
               Container(
                 width: 50,
                 height: 50,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: const Color(0xFFF9F8F8), // Background lingkaran
+                  color: const Color(0xFFF9F8F8),
                 ),
-                child: Center(
-                  child: Image.asset(imagePath, height: 30), // Logo provider
-                ),
+                child: Center(child: Image.asset(imagePath, height: 30)),
               ),
 
               SizedBox(height: 8),
@@ -328,11 +303,9 @@ class _HomePageState extends State<HomePage> {
                 child: DottedLine(dashColor: Colors.grey.shade300),
               ),
 
-              // Bagian harga & diskon
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Hanya tampilkan 0.8 jika bukan Tri atau Smartfren
                   if (!isNoPromoProvider) ...[
                     Stack(
                       alignment: Alignment.center,
@@ -341,32 +314,21 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Icon(Icons.star, size: 14, color: Colors.grey),
                             SizedBox(width: 4),
-                            Text(
-                              "0.8",
-                              style: TextStyle(
-                                color: Colors.grey,
-                                // Coret teks
-                              ),
-                            ),
+                            Text("0.8", style: TextStyle(color: Colors.grey)),
                           ],
                         ),
-                        // Garis coretan untuk mencoret ikon dan teks bersamaan
                         Positioned(
                           top: 8,
                           left: 0,
                           right: 0,
-                          child: Container(
-                            height: 1,
-                            color: Colors.grey, // Warna coretan
-                          ),
+                          child: Container(height: 1, color: Colors.grey),
                         ),
                       ],
                     ),
                     SizedBox(width: 8),
                   ],
-                  // Harga promo 0.9 (selalu tampil)
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    padding: EdgeInsets.symmetric(horizontal: 4, vertical: 2),
                     decoration: BoxDecoration(
                       color: Colors.blue,
                       borderRadius: BorderRadius.circular(12),
@@ -386,7 +348,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
 
-        // Label promo (diposisikan di luar container)
         if (!isNoPromoProvider)
           Positioned(
             top: -8,

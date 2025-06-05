@@ -149,16 +149,14 @@ class TransactionList extends StatelessWidget {
         return GestureDetector(
           onTap: () {
             if (transaction['provider'] == 'Axis') {
-              // Navigasi ke halaman gagal jika provider adalah Axis
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder:
-                      (context) => FailedActivityPage(), // Pastikan halaman ini ada
+                      (context) => FailedActivityPage(), 
                 ),
               );
             } else {
-              // Navigasi default ke halaman menunggu
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => WaitingActivityPage()),
@@ -186,7 +184,7 @@ class TransactionList extends StatelessWidget {
                               providerColors[transaction['provider']] ??
                               Colors
                                   .grey
-                                  .shade200, // Default warna jika tidak ada
+                                  .shade200, 
                           shape: BoxShape.circle,
                         ),
                         child: Padding(
@@ -332,10 +330,7 @@ class SuccessTransactionList extends StatelessWidget {
       itemBuilder: (context, index) {
         final transaction = transactions[index];
 
-        // Cek apakah status transaksi "Gagal"
         bool isFailed = transaction['status'] == 'Gagal';
-
-        // Warna status berdasarkan kondisi
         Color statusColor = isFailed ? const Color(0xFFF44336) : Colors.green;
         Color statusBackground =
             isFailed ? Color(0xFFFFE5E5) : Color(0xFFDFF6DD);
@@ -343,7 +338,6 @@ class SuccessTransactionList extends StatelessWidget {
 
         return GestureDetector(
           onTap: () {
-            // Navigasi ke halaman detail saat item diklik
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => SuccessActivityPage()),
@@ -360,7 +354,6 @@ class SuccessTransactionList extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Header
                 Row(
                   children: [
                     Container(
@@ -371,7 +364,7 @@ class SuccessTransactionList extends StatelessWidget {
                             providerColors[transaction['provider']] ??
                             Colors
                                 .grey
-                                .shade200, // Default warna jika tidak ada
+                                .shade200, 
                         shape: BoxShape.circle,
                       ),
                       child: Padding(
@@ -427,7 +420,6 @@ class SuccessTransactionList extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
 
-                // Nominal dan Konversi
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -452,7 +444,7 @@ class SuccessTransactionList extends StatelessWidget {
                         Text(
                           transaction['converted']!,
                           style: TextStyle(
-                            color: statusColor, // Warna berubah sesuai status
+                            color: statusColor, 
                             fontWeight: FontWeight.bold,
                           ),
                         ),

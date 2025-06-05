@@ -22,7 +22,7 @@ class _AddBankPageState extends State<AddBankPage> {
         },
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
