@@ -282,67 +282,103 @@ class _HomePageState extends State<HomePage> {
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min, // Tambahkan ini
             children: [
-              SizedBox(height: 20),
+              SizedBox(height: 15), // Kurangi dari 20 ke 15
               Container(
-                width: 50,
-                height: 50,
+                width: 45, // Kurangi dari 50 ke 45
+                height: 45, // Kurangi dari 50 ke 45
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: const Color(0xFFF9F8F8),
                 ),
-                child: Center(child: Image.asset(imagePath, height: 30)),
+                child: Center(
+                  child: Image.asset(imagePath, height: 25),
+                ), // Kurangi dari 30 ke 25
               ),
 
-              SizedBox(height: 8),
-              Text(provider, style: TextStyle(fontWeight: FontWeight.bold)),
-              SizedBox(height: 4),
+              SizedBox(height: 6), // Kurangi dari 8 ke 6
+              Flexible(
+                // Bungkus Text dengan Flexible
+                child: Text(
+                  provider,
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              SizedBox(height: 3), // Kurangi dari 4 ke 3
 
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 10),
+                padding: EdgeInsets.symmetric(
+                  vertical: 8,
+                ), // Kurangi dari 10 ke 8
                 child: DottedLine(dashColor: Colors.grey.shade300),
               ),
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  if (!isNoPromoProvider) ...[
-                    Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.star, size: 14, color: Colors.grey),
-                            SizedBox(width: 4),
-                            Text("0.8", style: TextStyle(color: Colors.grey)),
-                          ],
-                        ),
-                        Positioned(
-                          top: 8,
-                          left: 0,
-                          right: 0,
-                          child: Container(height: 1, color: Colors.grey),
-                        ),
-                      ],
+              // Bungkus rating section dengan Flexible
+              Flexible(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    if (!isNoPromoProvider) ...[
+                      Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                Icons.star,
+                                size: 12,
+                                color: Colors.grey,
+                              ), // Kurangi dari 14 ke 12
+                              SizedBox(width: 3), // Kurangi dari 4 ke 3
+                              Text(
+                                "0.8",
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 12,
+                                ),
+                              ), // Tambah fontSize
+                            ],
+                          ),
+                          Positioned(
+                            top: 6, // Sesuaikan posisi
+                            left: 0,
+                            right: 0,
+                            child: Container(height: 1, color: Colors.grey),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 6), // Kurangi dari 8 ke 6
+                    ],
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.star,
+                            size: 12,
+                            color: Colors.white,
+                          ), // Kurangi dari 14 ke 12
+                          SizedBox(width: 3), // Kurangi dari 4 ke 3
+                          Text(
+                            "0.9",
+                            style: TextStyle(color: Colors.white, fontSize: 12),
+                          ), // Tambah fontSize
+                        ],
+                      ),
                     ),
-                    SizedBox(width: 8),
                   ],
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(Icons.star, size: 14, color: Colors.white),
-                        SizedBox(width: 4),
-                        Text("0.9", style: TextStyle(color: Colors.white)),
-                      ],
-                    ),
-                  ),
-                ],
+                ),
               ),
             ],
           ),
@@ -355,6 +391,33 @@ class _HomePageState extends State<HomePage> {
             child: Image.asset('assets/label_discount.png', width: 70),
           ),
       ],
+    );
+  }
+
+  // Jika masih ada masalah, Anda juga bisa menyesuaikan GridView seperti ini:
+  Widget buildGridView() {
+    return SizedBox(
+      height: (providerList.length / 3).ceil() * 260, // Kurangi dari 280 ke 260
+      child: GridView.builder(
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        itemCount: providerList.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          childAspectRatio: 0.75, // Sesuaikan dari 0.7 ke 0.75
+          mainAxisSpacing: 10,
+          crossAxisSpacing: 10,
+        ),
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () => _showModal(context, providerList[index]['name']!),
+            child: _buildPulsaCard(
+              providerList[index]['name']!,
+              providerList[index]['image']!,
+            ),
+          );
+        },
+      ),
     );
   }
 }

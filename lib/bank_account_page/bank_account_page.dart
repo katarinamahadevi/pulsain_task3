@@ -21,9 +21,9 @@ class BankAccountPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xFFEFF5F7),
       appBar: PrimaryAppbar(
-        title: "Daftar Rekening", // Judul bisa diubah
+        title: "Daftar Rekening", 
         onBackPressed: () {
-          Navigator.pop(context); // Navigasi kembali
+          Navigator.pop(context); 
         },
       ),
       body: SingleChildScrollView(
@@ -83,7 +83,7 @@ class RekeningCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap, // Navigasi ke halaman detail saat diklik
+      onTap: onTap, 
       child: Container(
         margin: EdgeInsets.only(bottom: 10),
         padding: EdgeInsets.all(12),
@@ -93,7 +93,6 @@ class RekeningCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-            // Container pembungkus logo bank
             Container(
               width: 45,
               height: 45,
