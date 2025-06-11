@@ -16,33 +16,35 @@ class _AddBankPageState extends State<AddBankPage> {
     return Scaffold(
       backgroundColor: Color(0xFFEFF5F7),
       appBar: PrimaryAppbar(
-        title: "Tambah Rekening", 
+        title: "Tambah Rekening",
         onBackPressed: () {
-          Navigator.pop(context); 
+          Navigator.pop(context);
         },
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildLabel("Bank/Dompet Digital"),
-            _buildBankSelectionButton(),
-            SizedBox(height: 20),
-            _buildLabel("Nomor Rekening"),
-            _buildTextField("Masukkan nomor rekening"),
-            SizedBox(height: 20),
-            _buildLabel("Nama Pemilik Rekening"),
-            _buildTextField("Masukkan nama pemilik rekening"),
-            SizedBox(height: 350),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildLabel("Bank/Dompet Digital"),
+              _buildBankSelectionButton(),
+              SizedBox(height: 20),
+              _buildLabel("Nomor Rekening"),
+              _buildTextField("Masukkan nomor rekening"),
+              SizedBox(height: 20),
+              _buildLabel("Nama Pemilik Rekening"),
+              _buildTextField("Masukkan nama pemilik rekening"),
+              SizedBox(height: 300),
 
-            CustomButton(
-              text: "Simpan",
-              onPressed: () {
-                print("Rekening disimpan!");
-              },
-            ),
-          ],
+              CustomButton(
+                text: "Simpan",
+                onPressed: () {
+                  print("Rekening disimpan!");
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -76,7 +78,7 @@ class _AddBankPageState extends State<AddBankPage> {
         decoration: BoxDecoration(
           color: const Color(0xFFFBFBFF),
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: const Color(0xFFCFD7FF)), 
+          border: Border.all(color: const Color(0xFFCFD7FF)),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -105,7 +107,7 @@ class _AddBankPageState extends State<AddBankPage> {
         hintText: hintText,
         hintStyle: TextStyle(color: Colors.grey),
         filled: true,
-        fillColor: Color(0xFFFBFBFF), 
+        fillColor: Color(0xFFFBFBFF),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           borderSide: BorderSide(color: Color(0xFFCFD7FF), width: 1.5),

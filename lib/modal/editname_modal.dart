@@ -92,7 +92,12 @@ class EditNameModal extends StatelessWidget {
             Divider(color: Color(0xFFE9E9E9)),
             SizedBox(
               width: double.infinity,
-              child: CustomButton(text: "Simpan", onPressed: () {}),
+              child: CustomButton(
+                text: "Simpan",
+                onPressed: () {
+                  Navigator.pop(context); // Tutup modal
+                },
+              ),
             ),
           ],
         ),

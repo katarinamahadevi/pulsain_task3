@@ -394,7 +394,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  // Jika masih ada masalah, Anda juga bisa menyesuaikan GridView seperti ini:
   Widget buildGridView() {
     return SizedBox(
       height: (providerList.length / 3).ceil() * 260, // Kurangi dari 280 ke 260

@@ -114,7 +114,12 @@ class EditPhoneModal extends StatelessWidget {
             // Tombol Simpan
             SizedBox(
               width: double.infinity,
-              child: CustomButton(text: "Simpan", onPressed: () {}),
+              child: CustomButton(
+                text: "Simpan",
+                onPressed: () {
+                  Navigator.pop(context); // Tutup modal
+                },
+              ),
             ),
           ],
         ),

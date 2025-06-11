@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dotted_line/dotted_line.dart';
+import 'package:pulsain_task3/transfer_page/transfer_page.dart';
 
 class RateModal extends StatelessWidget {
   const RateModal({super.key});
@@ -72,11 +73,19 @@ class RateModal extends StatelessWidget {
           SizedBox(height: 7),
           _buildRateItem('30.000 - 1.000.000', 0.82, false),
           _buildRateItem('30.000 - 10.000.000', 0.82, false),
-          _buildRateItem('30.000 - 100.000.000', 0.82, true), // Item terakhir
+          _buildRateItem('30.000 - 100.000.000', 0.82, true), 
           SizedBox(height: 5),
           Divider(),
           SizedBox(height: 15),
-          CustomButton(text: 'Tukar Pulsa', onPressed: () {}),
+          CustomButton(
+            text: 'Tukar Pulsa',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TransferPage()),
+              );
+            },
+          ),
         ],
       ),
     );

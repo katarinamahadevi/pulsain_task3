@@ -5,8 +5,15 @@ import 'package:pulsain_task3/transfer_page/transfer2_page.dart';
 import '../widgets/tertiary_button.dart';
 import 'package:dotted_line/dotted_line.dart';
 
-class TransferPage extends StatelessWidget {
+class TransferPage extends StatefulWidget {
   const TransferPage({super.key});
+
+  @override
+  State<TransferPage> createState() => _TransferPageState();
+}
+
+class _TransferPageState extends State<TransferPage> {
+  bool isChecked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -69,9 +76,7 @@ class TransferPage extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => InboxPage(),
-                      ),
+                      MaterialPageRoute(builder: (context) => InboxPage()),
                     );
                     // Aksi ketika ikon notifikasi ditekan
                   },
@@ -335,9 +340,15 @@ class TransferPage extends StatelessWidget {
                                       Transform.scale(
                                         scale: 0.9,
                                         child: GestureDetector(
-                                          onTap: () {},
+                                          onTap: () {
+                                            setState(() {
+                                              isChecked = !isChecked;
+                                            });
+                                          },
                                           child: Image.asset(
-                                            'assets/icon_checkbox.png',
+                                            isChecked
+                                                ? 'assets/icon_checkbox.png'
+                                                : 'assets/icon_checkbox2.png',
                                             width: 24,
                                             height: 24,
                                           ),

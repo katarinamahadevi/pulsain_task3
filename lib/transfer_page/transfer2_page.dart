@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pulsain_task3/bank_account_page/bank_account_page.dart';
 import 'package:pulsain_task3/home_page/inbox_page.dart';
 import 'package:pulsain_task3/modal/warning_modal.dart';
-import 'package:pulsain_task3/transfer_page/transfer2_page.dart';
 import 'package:pulsain_task3/widgets/primary_button.dart';
-import '../widgets/tertiary_button.dart';
 import 'package:dotted_line/dotted_line.dart';
 
 void showWarningModal(BuildContext context) {
@@ -58,11 +56,7 @@ class Transfer2Page extends StatelessWidget {
                     ),
                   ),
                 ),
-
-                // Spasi kecil antara ikon back dan teks
                 const SizedBox(width: 10),
-
-                // Judul dengan Expanded agar tetap di tengah
                 Expanded(
                   child: const Text(
                     "Tukar Pulsa",
@@ -120,12 +114,10 @@ class Transfer2Page extends StatelessWidget {
               ],
             ),
           ),
-
-          // Content Container dengan posisi yang bisa diatur
           Positioned(
             top:
                 MediaQuery.of(context).size.height *
-                0.3, // 30% dari tinggi layar untuk background
+                0.3, 
             left: 0,
             right: 0,
             bottom: 0,

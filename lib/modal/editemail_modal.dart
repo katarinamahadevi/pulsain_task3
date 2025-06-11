@@ -19,7 +19,7 @@ class EditEmailModal extends StatelessWidget {
           color: Colors.white,
         ),
         child: Column(
-          mainAxisSize: MainAxisSize.min, // ✅ Agar modal tidak terlalu tinggi
+          mainAxisSize: MainAxisSize.min,
           children: [
             // Garis kecil di atas modal
             Container(
@@ -94,7 +94,12 @@ class EditEmailModal extends StatelessWidget {
             // Tombol Simpan
             SizedBox(
               width: double.infinity,
-              child: CustomButton(text: "Simpan", onPressed: () {}),
+              child: CustomButton(
+                text: "Simpan",
+                onPressed: () {
+                  Navigator.pop(context); // Tutup modal
+                },
+              ),
             ),
           ],
         ),
